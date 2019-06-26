@@ -2,7 +2,7 @@ import React from 'react';
 
 import Nav from '../nav';
 import Logo from '../logo';
-import Search from '../search';
+import SearchField from '../searchField';
 
 import './Header.scss';
 
@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container">
         <Nav/>
         <Logo/>
-        <Search/>
+        <SearchField/>
       </div>
     </header>
   )

@@ -1,0 +1,22 @@
+.search {
+  position: relative;
+
+  @media (max-width: 768px) {
+    order: 2;  
+  }
+}
+
+.search__input {
+  border: 1px solid #cfd8dc;
+  border-radius: 5px;
+  padding: 10px 35px 10px 20px;
+  font-size: 1rem;
+}
+
+.search__icon {
+  color: #cfd8dc;
+  position: absolute;
+  right: .5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
