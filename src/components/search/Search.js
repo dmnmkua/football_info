@@ -5,7 +5,11 @@ import './Search.scss';
 const Search = () => {
   return (
     <div className="search">
-      <input type="text"/>
+      <input
+        type="text"
+        placeholder="search"
+        className="search__input"
+        />
     </div>
   )
 }

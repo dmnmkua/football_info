@@ -1,0 +1,13 @@
+.search {
+
+  @media (max-width: 768px) {
+    order: 2;  
+  }
+}
+
+.search__input {
+  border: 1px solid #cfd8dc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
