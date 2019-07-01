@@ -6,7 +6,10 @@ import './Logo.scss';
 const Logo = () => {
   return (
     <a href="/" className="logo">
-      <img src={imageLogo} alt="logo" className="logo__img"/>
+      <img
+        src={imageLogo}
+        alt="logo"
+        className="logo__img"/>
     </a>
   )
 }

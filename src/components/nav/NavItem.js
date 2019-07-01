@@ -6,7 +6,11 @@ const NavItem = props => {
 
   return (
     <li className="nav__item">
-      <NavLink to={link} className="nav__link">
+      <NavLink
+        exact={true}
+        to={link}
+        className="nav__link"
+        activeClassName="nav__link--active">
         {name}
       </NavLink>
     </li>

@@ -2,6 +2,8 @@ import React from 'react';
 
 import NavItem from './NavItem';
 
+import routes from '../../routes';
+
 import './Nav.scss';
 
 const Nav = () => {
@@ -9,22 +11,22 @@ const Nav = () => {
     {
       id: 0,
       name: 'Home',
-      link: '/'
+      link: routes.home
     },
     {
       id: 1,
       name: 'Teams',
-      link: '/teams'
+      link: routes.teams
     },
     {
       id: 2,
       name: 'Fixtures',
-      link: '/fixtures'
+      link: routes.fixtures
     },
     {
       id: 3,
       name: 'Odds',
-      link: '/odds'
+      link: routes.odds
     },
   ]
   return (

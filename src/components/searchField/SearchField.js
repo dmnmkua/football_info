@@ -9,8 +9,7 @@ const SearchField = () => {
       <input
         type="text"
         placeholder="search"
-        className="search__input"
-        />
+        className="search__input" />
       <Search className="search__icon">youtube_searched_for</Search>
     </div>
   )
