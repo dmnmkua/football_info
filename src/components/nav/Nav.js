@@ -9,22 +9,22 @@ const Nav = () => {
     {
       id: 0,
       name: 'Home',
-      link: '#'
+      link: '/'
     },
     {
       id: 1,
       name: 'Teams',
-      link: '#'
+      link: '/teams'
     },
     {
       id: 2,
       name: 'Fixtures',
-      link: '#'
+      link: '/fixtures'
     },
     {
       id: 3,
       name: 'Odds',
-      link: '#'
+      link: '/odds'
     },
   ]
   return (
