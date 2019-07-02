@@ -5,6 +5,7 @@ import routes from './routes';
 
 import Home from './pages/home/Home';
 import Teams from './pages/teams';
+import Team from './pages/team';
 import Fixtures from './pages/fixtures';
 import Odds from './pages/odds';
 
@@ -18,8 +19,9 @@ function App() {
       <Header/>
 
       <Switch>
-        <Route exact={true} path={routes.home} component={Home} />
-        <Route path={routes.teams} component={Teams} />
+        <Route exact path={routes.home} component={Home} />
+        <Route exact path={routes.teams} component={Teams} />
+        <Route path={`${routes.teams}/:id`} component={Team} />
         <Route path={routes.fixtures} component={Fixtures} />
         <Route path={routes.odds} component={Odds} />
       </Switch>

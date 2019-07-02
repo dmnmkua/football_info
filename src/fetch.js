@@ -7,6 +7,10 @@ const params = {
   }
 }
 
-export function getTeams() {
+export function fetchTeams() {
   return axios.get('https://api-football-v1.p.rapidapi.com/v2/teams/league/2', params);
+}
+
+export function fetchTeam(id) {
+  return axios.get(`https://api-football-v1.p.rapidapi.com/v2/teams/team/${id}`, params);
 }

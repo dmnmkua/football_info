@@ -1,13 +1,3 @@
-import React from 'react';
-
-const Teams = () => {
-  return (
-    <div>
-      <div className="container">
-        Teams
-      </div>
-    </div>
-  )
-}
+import Teams from './Teams';
 
 export default Teams;

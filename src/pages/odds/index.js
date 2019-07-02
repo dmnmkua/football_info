@@ -1,11 +1,12 @@
 import React from 'react';
+import {Container} from '@material-ui/core';
 
 const Odds = () => {
   return (
     <div>
-      <div className="container">
-        Odds
-      </div>
+      <Container>
+        <h1>Odds</h1>
+      </Container>
     </div>
   )
 }
