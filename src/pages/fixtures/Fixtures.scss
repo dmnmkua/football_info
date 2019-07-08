@@ -1,0 +1,21 @@
+.fixtures {
+  padding: 20px 0;
+}
+
+.fixtures__paper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.fixtures__link {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #039be5;
+}
+
+.fixtures__img {
+  width: 30px;
+  margin: 0 5px;
+}

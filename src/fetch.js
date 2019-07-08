@@ -14,3 +14,7 @@ export function fetchTeams() {
 export function fetchTeam(id) {
   return axios.get(`https://api-football-v1.p.rapidapi.com/v2/teams/team/${id}`, params);
 }
+
+export function fetchFixturesLeague() {
+  return axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2', params);
+}
