@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {Container, Paper, Table, TableBody, TableHead, TableRow, TableCell, Grid, CircularProgress, TablePagination} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {fetchFixturesLeague} from '../../fetch';
@@ -6,21 +7,9 @@ import routes from '.././../routes';
 
 import './Fixtures.scss';
 
-export default class Fixtures extends Component{
+class Fixtures extends Component{
   state = {
-    fixtures: [],
     page: 0
-  }
-
-  componentDidMount() {
-    this.setFixtures();
-  }
-
-  setFixtures = () => {
-    fetchFixturesLeague()
-      .then(({data}) => {
-        this.setState({fixtures: data.api.fixtures});
-      })
   }
 
   createRow = row => {
@@ -82,7 +71,8 @@ export default class Fixtures extends Component{
   }
 
   render() {
-    const {fixtures, page} = this.state;
+    const { page} = this.state;
+    const {fixtures} = this.props;
     const headRows = [
       'Home Team',
       'Score',
@@ -144,3 +134,9 @@ export default class Fixtures extends Component{
     )
   }
 }
+
+export default connect(
+  state => ({
+    fixtures: state.fixtures
+  })
+)(Fixtures)

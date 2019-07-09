@@ -3,7 +3,7 @@ import {Container} from '@material-ui/core';
 
 import './Home.scss';
 
-const Home = () => {
+const Home = props => {
   return(
     <div className="home">
       <Container>
