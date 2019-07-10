@@ -19,3 +19,16 @@
   width: 30px;
   margin: 0 5px;
 }
+
+.fixture__icon--add {
+  cursor: pointer;
+  color: #039be5;
+}
+
+.fixtures__event {
+  padding: 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
