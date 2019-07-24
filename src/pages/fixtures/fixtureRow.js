@@ -106,18 +106,18 @@ export default class FixtureRow extends Component {
         <TableCell colSpan="7">
           {loading
           ? <CircularProgress/>
-          : <Grid container>
-            <Grid item xs={12} >
+          : <Grid container spacing={3}>
             {events.map((event, index) => (
-              <Paper className="fixtures__event" key={index}>
-                <h3>{event.elapsed} min</h3>
-                <p>Team: {event.teamName}</p>
-                <p>Player: {event.player}</p>
-                <p>Type event: {event.type}</p>
-                <p>Detail event: {event.detail}</p>
-              </Paper>
+              <Grid item xs={3} key={index}>
+                <Paper className="fixtures__event">
+                  <h3>{event.elapsed} min</h3>
+                  <p>Team: {event.teamName}</p>
+                  <p>Player: {event.player}</p>
+                  <p>Type event: {event.type}</p>
+                  <p>Detail event: {event.detail}</p>
+                </Paper>
+              </Grid>
             ))}
-            </Grid>
           </Grid>
           }
         </TableCell>
