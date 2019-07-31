@@ -57,12 +57,12 @@ export default class FixtureRow extends Component {
       },
       {
         id: 5,
-        value: `${status}`,
+        value: `${status ? status : ''}`,
         align: 'center'
       },
       {
         id: 6,
-        value: `${venue}`,
+        value: `${venue ? venue : ''}`,
         align: 'center'
       }
     ]

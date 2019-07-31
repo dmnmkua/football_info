@@ -9,3 +9,55 @@
 .home__btns-group {
   margin-bottom: 20px;
 }
+
+.home__paper {
+  padding: 20px;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  & > ul {
+    list-style: none;
+
+    li {
+      line-height: 1.5;
+    }
+
+    & > li:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.home__paper-title {
+  display: flex;
+  align-items: center;
+}
+
+.home__paper-logo {
+  height: 30px;
+  margin: 0 20px;
+}
+
+.home__paper-table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+
+  @media (max-width: 500px) {
+    font-size: 0.8em;
+  }
+  
+  tr {
+    border-bottom: 1px solid #000;
+  }
+
+  td, th {
+    padding: 5px 10px;
+
+    &:not(:first-child) {
+      text-align: center;
+    }
+  }
+}

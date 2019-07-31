@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
 import {Container, CircularProgress, Grid, Paper} from '@material-ui/core';
-import {getTeam} from '../../redux/actions/team';
 
 import {FETCH_TEAM} from '../../redux/actions/actionTypes';
 

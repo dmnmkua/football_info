@@ -9,7 +9,7 @@ export const requestStandings = () => {
 export const requestStandingsSuccess = data => {
   return {
     type: GET_STANDINGS_SUCCESS,
-    payload: data.data.api.standings
+    payload: data.data.api.standings[0]
   }
 }
 

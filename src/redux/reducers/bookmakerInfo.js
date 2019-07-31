@@ -1,7 +1,7 @@
 import {GET_BOOKMAKER_INFO_REQUEST, GET_BOOKMAKER_INFO_SUCCESS, GET_BOOKMAKER_INFO_FAILURE} from '../actions/actionTypes';
 
 const initialState = {
-  bookmakerInfo: null,
+  bookmakerInfo: [],
   error: '',
   isLoading: false
 }
@@ -11,7 +11,7 @@ export default function team(state = initialState, action) {
     case GET_BOOKMAKER_INFO_REQUEST:
       return {
         ...state,
-        bookmakerInfo: null,
+        bookmakerInfo: [],
         error: '',
         isLoading: true
       };
