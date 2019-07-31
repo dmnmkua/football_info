@@ -14,7 +14,7 @@ export default class FixturesTable extends Component {
 
   render() {
     const { page} = this.state;
-    const {fixtures} = this.props;
+    const {fixtures, isLoading, error} = this.props;
     const headRows = [
       'Details',
       'Home Team',
@@ -28,8 +28,9 @@ export default class FixturesTable extends Component {
 
     return (
       <Fragment>
-      {fixtures
+      {!isLoading
         ? <Paper className="fixtures__paper">
+            <div className="error">{error}</div>
             <Table className="fixtures__table">
               <TableHead>
                 <TableRow>

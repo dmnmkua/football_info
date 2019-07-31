@@ -4,9 +4,12 @@ import {connect} from 'react-redux';
 
 import FixturesTable from '../fixtures/fixturesTable';
 
-import {getFixturesLive} from '../../redux/actions/fixturesLive';
-import {getFixturesLivePrLeague} from '../../redux/actions/fixturesLivePrLeague';
-import {getBookmakerInfo} from '../../redux/actions/bookmakerInfo';
+import {
+  FETCH_FIXTURES_LIVE,
+  FETCH_FIXTURES_LIVE_PREMIER_LEAGUE,
+  FETCH_BOOKMAKER_INFO,
+  FETCH_STANDINGS
+} from '../../redux/actions/actionTypes';
 
 import './Home.scss';
 
@@ -14,7 +17,8 @@ const Home = props => {
 
   useEffect(() => {
     props.onFetchFixturesLive();
-    props.onFetchBookmakerInfo(2);
+    props.onFetchBookmakerInfo(404);
+    props.onFetchStanding();
   }, []);
 
   return(
@@ -55,18 +59,40 @@ const Home = props => {
 }
 
 export default connect(
-  state => ({
-    fixturesLive: state.fixturesLive
-  }),
+  state => {
+    const {fixturesLive, error: fixturesError, isLoading: fixtutesIsLoading} = state.fixturesLive;
+    const {standings, error: standingsError, isLoading: standingsIsLoading} = state.standings;
+
+    return {
+      fixturesLive,
+      fixturesError,
+      fixtutesIsLoading,
+      standings,
+      standingsError,
+      standingsIsLoading
+    }
+  },
   dispatch => ({
     onFetchFixturesLive: () => {
-      dispatch(getFixturesLive());
+      dispatch({
+        type: FETCH_FIXTURES_LIVE
+      });
     },
     onFetchFixturesLivePrLeague: () => {
-      dispatch(getFixturesLivePrLeague());
+      dispatch({
+        type: FETCH_FIXTURES_LIVE_PREMIER_LEAGUE
+      });
     },
     onFetchBookmakerInfo: id => {
-      dispatch(getBookmakerInfo(id));
+      dispatch({
+        type: FETCH_BOOKMAKER_INFO,
+        id
+      });
+    },
+    onFetchStanding: () => {
+      dispatch({
+        type: FETCH_STANDINGS
+      })
     }
   })
 )(Home);

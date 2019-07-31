@@ -31,6 +31,14 @@ export function fetchEvents(id) {
   return axios.get(`https://api-football-v1.p.rapidapi.com/v2/events/${id}`, params);
 }
 
+export function fetchStanding() {
+  return axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagueTable/2`, params);
+}
+
 export function fetchBookmakerInfo(id) {
   return axios.get(`https://api-football-v1.p.rapidapi.com/v2/odds/league/${id}/bookmaker/6`, params);
+}
+
+export function fetchBookmakers() {
+  return axios.get(`https://api-football-v1.p.rapidapi.com/v2/odds/bookmakers/`, params);
 }

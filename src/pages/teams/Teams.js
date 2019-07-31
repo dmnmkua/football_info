@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 import {Container, Grid, CircularProgress} from '@material-ui/core';
 import TeamCard from './TeamCard';
 
-import {getTeams} from '../../redux/actions/teams';
+import {FETCH_TEAMS} from '../../redux/actions/actionTypes';
 
 import './Teams.scss';
 
 const Teams = (props) => {
-  useEffect(props.onFetchTeams, [])
+  useEffect(props.onFetchTeams, []);
+
   return(
     <div className="teams">
       <Container>
@@ -16,7 +17,12 @@ const Teams = (props) => {
           Teams
         </h1>
         <Grid container spacing={3} className="teams__list" alignItems="center" justify="center">
-          {props.teams.length ? props.teams.map(team => <TeamCard team={team} key={team.team_id} />) : <CircularProgress className="teams__progress" />}
+          {
+            props.isLoading && <CircularProgress className="teams__progress" />
+          }
+          {
+            !!props.error ? props.error : props.teams.map(team => <TeamCard team={team} key={team.team_id} />)
+          }
         </Grid>
       </Container>
     </div>
@@ -24,12 +30,20 @@ const Teams = (props) => {
 }
 
 export default connect(
-  state => ({
-    teams: state.teams
-  }),
+  state => {
+    const {teams, error, isLoading} = state.teams;
+
+    return {
+      teams,
+      error,
+      isLoading
+    }
+  },
   dispatch => ({
     onFetchTeams: () => {
-      dispatch(getTeams());
+      dispatch({
+        type: FETCH_TEAMS
+      });
     }
   })
 )(Teams);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Container} from '@material-ui/core';
 
-import {getFixturesLeague} from '../../redux/actions/fixtures';
+import {FETCH_FIXTURES} from '../../redux/actions/actionTypes';
 
 import FixturesTable from './fixturesTable';
 
@@ -15,13 +15,11 @@ class Fixtures extends Component{
   }
 
   render() {
-    const {fixtures} = this.props;    
-
     return (
       <div className="fixtures">
         <Container>
           <h1>Fixtures</h1>
-          <FixturesTable fixtures={fixtures} />
+          <FixturesTable {...this.props} />
         </Container>
       </div>
     )
@@ -29,12 +27,20 @@ class Fixtures extends Component{
 }
 
 export default connect(
-  state => ({
-      fixtures: state.fixtures
-    }),
+  state => {
+    const {fixtures, error, isLoading} = state.fixtures;
+
+    return {
+      fixtures,
+      error,
+      isLoading
+    }
+  },
   dispatch => ({
     onFetchFixturesLeague: () => {
-      dispatch(getFixturesLeague());
+      dispatch({
+        type: FETCH_FIXTURES
+      });
     }
   })
 )(Fixtures)

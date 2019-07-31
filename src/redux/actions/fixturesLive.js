@@ -1,10 +1,21 @@
-import {fetchFixturesLive} from '../../fetch';
+import {GET_FIXTURES_LIVE_REQUEST, GET_FIXTURES_LIVE_SUCCESS, GET_FIXTURES_LIVE_FAILURE} from './actionTypes';
 
-export const getFixturesLive = () => async dispatch => {
-  const fixturesLive = await fetchFixturesLive()
-    .then(({data}) => data.api.fixtures)
-  dispatch({
-    type: 'FETCH_FIXTURES_LIVE',
-    payload: fixturesLive
-  })
+export const requestFixturesLive = () => {
+  return {
+    type: GET_FIXTURES_LIVE_REQUEST
+  }
+}
+
+export const requestFixturesLiveSuccess = data => {
+  return {
+    type: GET_FIXTURES_LIVE_SUCCESS,
+    payload: data.data.api.fixtures
+  }
+}
+
+export const requestFixturesLiveFailure = error => {
+  return {
+    type: GET_FIXTURES_LIVE_FAILURE,
+    payload: error.response.data.message
+  }
 }

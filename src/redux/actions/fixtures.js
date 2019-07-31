@@ -1,10 +1,21 @@
-import {fetchFixturesLeague} from '../../fetch';
+import {GET_FIXTURES_REQUEST, GET_FIXTURES_SUCCESS, GET_FIXTURES_FAILURE} from './actionTypes';
 
-export const getFixturesLeague = () => async dispatch => {
-  const fixturesLeague = await fetchFixturesLeague()
-    .then(({data}) => data.api.fixtures)
-  dispatch({
-    type: 'FETCH_FIXTURES_LEAGUE',
-    payload: fixturesLeague
-  })
+export const requestFixtures = () => {
+  return {
+    type: GET_FIXTURES_REQUEST
+  }
+}
+
+export const requestFixturesSuccess = data => {
+  return {
+    type: GET_FIXTURES_SUCCESS,
+    payload: data.data.api.fixtures
+  }
+}
+
+export const requestFixturesFailure = error => {
+  return {
+    type: GET_FIXTURES_FAILURE,
+    payload: error.response.data.message
+  }
 }

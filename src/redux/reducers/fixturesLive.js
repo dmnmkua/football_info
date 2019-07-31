@@ -1,9 +1,32 @@
-export default function fixturesLive(state = null, action) {
+import {GET_FIXTURES_LIVE_REQUEST, GET_FIXTURES_LIVE_SUCCESS, GET_FIXTURES_LIVE_FAILURE} from '../actions/actionTypes';
+
+const initialState = {
+  fixturesLive: [],
+  error: '',
+  isLoading: false
+}
+
+export default function fixturesLive(state = initialState, action) {
   switch(action.type) {
-    case 'FETCH_FIXTURES_LIVE':
-      return action.payload;
-    case 'FETCH_FIXTURES_LIVE_PREMIER_LEAGUE':
-        return action.payload;
+    case GET_FIXTURES_LIVE_REQUEST:
+      return {
+        ...state,
+        error: '',
+        fixturesLive: [],
+        isLoading: true
+      };
+    case GET_FIXTURES_LIVE_SUCCESS:
+      return {
+        ...state,
+        fixturesLive: action.payload,
+        isLoading: false
+      }
+    case GET_FIXTURES_LIVE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false
+      }
     default:
       return state;
   }

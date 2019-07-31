@@ -1,27 +1,27 @@
-import {GET_FIXTURES_REQUEST, GET_FIXTURES_SUCCESS, GET_FIXTURES_FAILURE} from '../actions/actionTypes';
+import {GET_BOOKMAKERS_REQUEST, GET_BOOKMAKERS_SUCCESS, GET_BOOKMAKERS_FAILURE} from '../actions/actionTypes';
 
 const initialState = {
-  fixtures: [],
+  bookmakers: [],
   error: '',
   isLoading: false
 }
 
-export default function fixtures(state = initialState, action) {
+export default function bookmakers(state = initialState, action) {
   switch(action.type) {
-    case GET_FIXTURES_REQUEST:
+    case GET_BOOKMAKERS_REQUEST:
       return {
         ...state,
         error: '',
-        fixtures: [],
+        bookmakers: [],
         isLoading: true
       };
-    case GET_FIXTURES_SUCCESS:
+    case GET_BOOKMAKERS_SUCCESS:
       return {
         ...state,
-        fixtures: action.payload,
+        bookmakers: action.payload,
         isLoading: false
       }
-    case GET_FIXTURES_FAILURE:
+    case GET_BOOKMAKERS_FAILURE:
       return {
         ...state,
         error: action.payload,

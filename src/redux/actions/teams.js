@@ -1,10 +1,21 @@
-import {fetchTeams} from '../../fetch';
+import {GET_TEAMS_REQUEST, GET_TEAMS_SUCCESS, GET_TEAMS_FAILURE} from './actionTypes';
 
-export const getTeams = () => async dispatch => {
-  const teams = await fetchTeams()
-    .then(({data}) => data.api.teams)
-  dispatch({
-    type: 'FETCH_TEAMS',
-    payload: teams
-  })
+export const requestTeams = () => {
+  return {
+    type: GET_TEAMS_REQUEST
+  }
+}
+
+export const requestTeamsSuccess = data => {
+  return {
+    type: GET_TEAMS_SUCCESS,
+    payload: data.data.api.teams
+  }
+}
+
+export const requestTeamsFailure = error => {
+  return {
+    type: GET_TEAMS_FAILURE,
+    payload: error.response.data.message
+  }
 }

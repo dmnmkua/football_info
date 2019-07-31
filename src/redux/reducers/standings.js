@@ -1,27 +1,27 @@
-import {GET_FIXTURES_REQUEST, GET_FIXTURES_SUCCESS, GET_FIXTURES_FAILURE} from '../actions/actionTypes';
+import {GET_STANDINGS_REQUEST, GET_STANDINGS_SUCCESS, GET_STANDINGS_FAILURE} from '../actions/actionTypes';
 
 const initialState = {
-  fixtures: [],
+  standings: [],
   error: '',
   isLoading: false
 }
 
-export default function fixtures(state = initialState, action) {
+export default function standings(state = initialState, action) {
   switch(action.type) {
-    case GET_FIXTURES_REQUEST:
+    case GET_STANDINGS_REQUEST:
       return {
         ...state,
         error: '',
-        fixtures: [],
+        standings: [],
         isLoading: true
       };
-    case GET_FIXTURES_SUCCESS:
+    case GET_STANDINGS_SUCCESS:
       return {
         ...state,
-        fixtures: action.payload,
+        standings: action.payload,
         isLoading: false
       }
-    case GET_FIXTURES_FAILURE:
+    case GET_STANDINGS_FAILURE:
       return {
         ...state,
         error: action.payload,
